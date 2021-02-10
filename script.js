@@ -5,5 +5,7 @@ function flipCard() {
 }
 cards.forEach((card) => card.addEventListener("click", flipCard));
 
-
+function VerifyId(a) {
+    alert(a);
+}
 

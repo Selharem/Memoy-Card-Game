@@ -5,7 +5,13 @@ function flipCard() {
 }
 cards.forEach((card) => card.addEventListener("click", flipCard));
 
-function VerifyId(a) {
-    alert(a);
+let  VerifyId = a => alert(a);
+
+var Fruits = ['avocado.svg','blueberries.svg','cabbage.svg','cabbage.svg','cherry.svg','olives.svg','parsley.svg','radishes.svg','raspberry.svg']
+
+for(var i=11,j=0;i<=99;i+=11,j++){
+  document.getElementById(i).src = Fruits[j];
+
 }
+
 

@@ -1,4 +1,4 @@
-var Fruits = ['avocado.svg','blueberries.svg','cabbage.svg','spring-onion.svg','cherry.svg','olives.svg','parsley.svg','radishes.svg','raspberry.svg'];
+var Fruits = ['avocado','blueberries','cabbage','spring-onion','cherry','olives','parsley','radishes','raspberry'];
 var choosenFruits = [];
 var choosenCards = [];
 var id_clicked1 = null;
@@ -40,8 +40,8 @@ function fakeRandom(){ //just for testing
     choosenFruits[i] = Fruits[l];
     //document.getElementById(j).src = Fruits[l];
     choosenFruits[j] = Fruits[l];
-    document.getElementById('back' + i).src = Fruits[l];
-    document.getElementById('back' + j).src = Fruits[l];
+    document.getElementById('back' + i).src = 'Images/' + Fruits[l] + '.svg';
+    document.getElementById('back' + j).src = 'Images/' + Fruits[l] + '.svg';
     l++;
 
   }

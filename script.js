@@ -34,10 +34,14 @@ function fakeRandom(){ //just for testing
       l=0;
     }
 
-    document.getElementById(i).src = Fruits[l];
+    
+
+    //document.getElementById(i).src = Fruits[l];
     choosenFruits[i] = Fruits[l];
-    document.getElementById(j).src = Fruits[l];
+    //document.getElementById(j).src = Fruits[l];
     choosenFruits[j] = Fruits[l];
+    document.getElementById('back' + i).src = Fruits[l];
+    document.getElementById('back' + j).src = Fruits[l];
     l++;
 
   }
@@ -51,7 +55,7 @@ function verifySimilarity(){
         alert('success');
         id_clicked1 = null;
         id_clicked2 = null;
-        clicked_turn == 0
+        clicked_turn == 0;
       }
   }
 }

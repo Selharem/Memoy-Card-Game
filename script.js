@@ -39,6 +39,8 @@ function flippa(a) {
 function flippaBack(a) {
   var card = document.getElementById(a);
     card.classList.toggle('flip');
+    clicked[a-100] = 'back'
+
 }
 
 /*function flippa2(){
@@ -72,9 +74,12 @@ function verifySimilarity(){
         clicked_turn == 0;
       } else{
         //alert('echec')
-        //echec = true;
+        echec = true;
         flippaBack(id_clicked1);
         flippaBack(id_clicked2);
+        id_clicked1 = null;
+        id_clicked2 = null;
+        clicked_turn == 0;
       }
   }
 }

@@ -8,7 +8,6 @@ var clicked_turn = 0;
 var score = 0;
 var clicked = ['back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back'];
 
-//flippa();
 fakeRandom();
 
 function verifyId(a) {
@@ -19,7 +18,7 @@ function verifyId(a) {
   } else if(clicked_turn == 1 && id_clicked1!=null) {
     id_clicked2 = a;
     clicked_turn = 0;
-    console.log(id_clicked1 + ' ' + id_clicked2)
+    console.log(id_clicked1 + ' ' + id_clicked2);
     verifySimilarity();
   }
 }
@@ -27,7 +26,8 @@ function verifyId(a) {
 
 function flippa(a) {
   if(clicked[a-100] == 'back' ) {
-    clicked[a-100] = 'front'
+    clicked[a-100] = 'front';
+    
     var card = document.getElementById(a);
     card.classList.toggle('flip');
   } /*else if(clicked[a-100] == 'front'){
@@ -38,21 +38,14 @@ function flippa(a) {
 }
 
 function flippaBack(a) {
-  var card = document.getElementById(a);
+  setTimeout( function() {
+    var card = document.getElementById(a);
     card.classList.toggle('flip');
-    clicked[a-100] = 'back'
-
+    clicked[a-100] = 'back';
+  }, 500);
 }
 
-/*function flippa2() {
-  const cards = document.querySelectorAll(".cards__single");
-  function flipCard2() {
-    this.classList.toggle("flip");
-  }
-  cards.forEach((card) => card.addEventListener("click", flipCard));
-}*/
-
-function fakeRandom() { //just for testing 
+function fakeRandom() { 
   var l = 0;
   for(var i=0,j=1;i<=17;i+=2,j+=2) {
     if(l==9){
@@ -77,10 +70,15 @@ function verifySimilarity() {
         id_clicked2 = null;
         clicked_turn == 0;
       } else{
+        //flippa(id_clicked2);
+
         //alert('echec')
         echec = true;
         flippaBack(id_clicked1);
         flippaBack(id_clicked2);
+
+    
+
         id_clicked1 = null;
         id_clicked2 = null;
         clicked_turn == 0;

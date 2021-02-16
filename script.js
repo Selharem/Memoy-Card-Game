@@ -8,21 +8,27 @@ var clicked_turn = 0;
 var score = 0;
 var clicked = ['back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back'];
 
-fakeRandom();
+var fruitsDuplicated = [];
+for (var i = 0; i < 9; i++)
+  fruitsDuplicated.push(Fruits[i], Fruits[i]);
+
+console.log(fruitsDuplicated)
+
+shuffle(fruitsDuplicated);
+fakeRandom2(fruitsDuplicated);
 
 function verifyId(a) {
   flippa(a);
   if(clicked_turn == 0) {
     id_clicked1 = a;
     clicked_turn = 1;
-  } else if(clicked_turn == 1 && id_clicked1!=null) {
-    id_clicked2 = a;
-    clicked_turn = 0;
-    console.log(id_clicked1 + ' ' + id_clicked2);
-    verifySimilarity();
+  } else if(clicked_turn == 1 && id_clicked1 != null) {
+      id_clicked2 = a;
+      clicked_turn = 0;
+      console.log(id_clicked1 + ' ' + id_clicked2);
+      verifySimilarity();
   }
 }
-
 
 function flippa(a) {
   if(clicked[a-100] == 'back' ) {
@@ -30,11 +36,7 @@ function flippa(a) {
     
     var card = document.getElementById(a);
     card.classList.toggle('flip');
-  } /*else if(clicked[a-100] == 'front'){
-    clicked[a-100] = 'back'
-    var card = document.getElementById(a);
-    card.classList.toggle('flip');
-  }*/
+  }
 }
 
 function flippaBack(a) {
@@ -45,17 +47,10 @@ function flippaBack(a) {
   }, 500);
 }
 
-function fakeRandom() { 
-  var l = 0;
-  for(var i=0,j=1;i<=17;i+=2,j+=2) {
-    if(l==9){
-      l=0;
-    }
-    choosenFruits[i] = Fruits[l];
-    choosenFruits[j] = Fruits[l];
-    document.getElementById('back' + i).src = 'Images/' + Fruits[l] + '.svg';
-    document.getElementById('back' + j).src = 'Images/' + Fruits[l] + '.svg';
-    l++;
+function fakeRandom2(array) { 
+  for(var i=0;i<18;i++) {
+    choosenFruits[i] = fruitsDuplicated[i];
+    document.getElementById('back' + i).src = 'Images/' + fruitsDuplicated[i] + '.svg';
   }
 }
 
@@ -70,15 +65,9 @@ function verifySimilarity() {
         id_clicked2 = null;
         clicked_turn == 0;
       } else{
-        //flippa(id_clicked2);
-
-        //alert('echec')
         echec = true;
         flippaBack(id_clicked1);
         flippaBack(id_clicked2);
-
-    
-
         id_clicked1 = null;
         id_clicked2 = null;
         clicked_turn == 0;
@@ -86,23 +75,21 @@ function verifySimilarity() {
   }
 }
 
-/*function chooseRandom() {
-  for(var i=0,j=0;i<=17;i++,j++) {
-    var a = Math.floor(Math.random() * 9) + 0;
-    //if( Occurence(choosenFruits,Fruits[a]) <= 1 ) {
-      //choosenFruits.push(Fruits[a]);
-      choosenFruits[i] = Fruits[a];
-      document.getElementById(i).src = choosenFruits[i];
-    //}
-  }
-}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-function Occurence(Array1,char) {
-  var result = 0;
-  for(var k=0;k<Array1.length;k++) {
-    if(Array1[k]==char){
-        result ++;
-    }
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
-  return result;
-}*/
+
+  return array;
+}

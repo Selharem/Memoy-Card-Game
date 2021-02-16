@@ -3,6 +3,7 @@ var choosenFruits = [];
 var choosenCards = [];
 var id_clicked1 = null;
 var id_clicked2 = null;
+var echec = false;
 var clicked_turn = 0;
 var clicked = ['back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back','back'];
 
@@ -24,11 +25,20 @@ function VerifyId(a) {
 
 
 function flippa(a) {
-  if(clicked[a-100] == 'back'){
+  if(clicked[a-100] == 'back' ){
     clicked[a-100] = 'front'
+    var card = document.getElementById(a);
+    card.classList.toggle('flip');
+  } /*else if(clicked[a-100] == 'front'){
+    clicked[a-100] = 'back'
+    var card = document.getElementById(a);
+    card.classList.toggle('flip');
+  }*/
+}
+
+function flippaBack(a) {
   var card = document.getElementById(a);
-  card.classList.toggle('flip');
-  }
+    card.classList.toggle('flip');
 }
 
 /*function flippa2(){
@@ -56,12 +66,15 @@ function fakeRandom(){ //just for testing
 function verifySimilarity(){
   if(id_clicked1 != null && id_clicked2 != null) {
       if(choosenFruits[id_clicked1-100] == choosenFruits[id_clicked2-100] && id_clicked1!=id_clicked2){
-        alert('success');
+        //alert('success');
         id_clicked1 = null;
         id_clicked2 = null;
         clicked_turn == 0;
       } else{
-        alert('echec')
+        //alert('echec')
+        //echec = true;
+        flippaBack(id_clicked1);
+        flippaBack(id_clicked2);
       }
   }
 }

@@ -5,28 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>JS Card game</title>
 </head>
 <body>
-
-    <div id="top">
-        turns
-        attempts
-        wins
-    </div>
-    
-    <div id="middle">
-        <div id="myBar">
-
-        </div>
-    </div>
     <table>
         <tr>
             <td>
                 <section class="cards">
-                    <div id="100" class="cards__single" onclick="VerifyId(100)">
+                    <div id="0" class="cards__single" onclick="chooseCard(0)">
                         <div class="cards__front">
-                            <img class="cards__image" id="0" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" src="Images/card_backside.jpg" alt="back side"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back0" alt="choose(alt())"/>
@@ -36,9 +24,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="101" class="cards__single" onclick="VerifyId(101)">
+                    <div id="1" class="cards__single" onclick="chooseCard(1)">
                         <div class="cards__front">
-                            <img class="cards__image" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back1" alt="Bon Iver album"/>
@@ -48,9 +36,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="102" class="cards__single" onclick="VerifyId(102)">
+                    <div id="2" class="cards__single" onclick="chooseCard(2)">
                         <div class="cards__front">
-                            <img class="cards__image" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back2" alt="Bon Iver album"/>
@@ -60,9 +48,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="103" class="cards__single" onclick="VerifyId(103)">
+                    <div id="3" class="cards__single" onclick="chooseCard(3)">
                         <div class="cards__front">
-                            <img class="cards__image" id="3" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="3" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back3" alt="Bon Iver album"/>
@@ -72,9 +60,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="104" class="cards__single" onclick="VerifyId(104)">
+                    <div id="4" class="cards__single" onclick="chooseCard(4)">
                         <div class="cards__front">
-                            <img class="cards__image" id="4" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="4" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back4" alt="Bon Iver album"/>
@@ -84,9 +72,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="105" class="cards__single" onclick="VerifyId(105)">
+                    <div id="5" class="cards__single" onclick="chooseCard(5)">
                         <div class="cards__front">
-                            <img class="cards__image" id="5" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="5" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back5" alt="Bon Iver album"/>
@@ -98,9 +86,9 @@
         <tr>
             <td>
                 <section class="cards">
-                    <div id="106" class="cards__single" onclick="VerifyId(106)">
+                    <div id="6" class="cards__single" onclick="chooseCard(6)">
                         <div class="cards__front">
-                            <img class="cards__image" id="6" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="6" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back6" alt="Bon Iver album"/>
@@ -110,9 +98,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="107" class="cards__single" onclick="VerifyId(107)">
+                    <div id="7" class="cards__single" onclick="chooseCard(7)">
                         <div class="cards__front">
-                            <img class="cards__image" id="7" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="7" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back7" alt="Bon Iver album"/>
@@ -122,9 +110,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="108" class="cards__single" onclick="VerifyId(108)">
+                    <div id="8" class="cards__single" onclick="chooseCard(8)">
                         <div class="cards__front">
-                            <img class="cards__image" id="8" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="8" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back8" alt="Bon Iver album"/>
@@ -134,9 +122,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="109" class="cards__single" onclick="VerifyId(109)">
+                    <div id="9" class="cards__single" onclick="chooseCard(9)">
                         <div class="cards__front">
-                            <img class="cards__image" id="9" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="9" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back9" alt="Bon Iver album"/>
@@ -146,9 +134,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="110" class="cards__single" onclick="VerifyId(110)">
+                    <div id="10" class="cards__single" onclick="chooseCard(10)">
                         <div class="cards__front">
-                            <img class="cards__image" id="10" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="10" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back10" alt="Bon Iver album"/>
@@ -158,9 +146,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="111" class="cards__single" onclick="VerifyId(111)">
+                    <div id="11" class="cards__single" onclick="chooseCard(11)">
                         <div class="cards__front">
-                            <img class="cards__image" id="11" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="11" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back11" alt="Bon Iver album"/>
@@ -171,9 +159,9 @@
         </tr> <tr>
             <td>
                 <section class="cards">
-                    <div id="112" class="cards__single" onclick="VerifyId(112)">
+                    <div id="12" class="cards__single" onclick="chooseCard(12)">
                         <div class="cards__front">
-                            <img class="cards__image" id="12" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="12" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back12" alt="Bon Iver album"/>
@@ -183,9 +171,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="113" class="cards__single" onclick="VerifyId(113)">
+                    <div id="13" class="cards__single" onclick="chooseCard(13)">
                         <div class="cards__front">
-                            <img class="cards__image" id="13" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="13" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back13" alt="Bon Iver album"/>
@@ -195,9 +183,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="114" class="cards__single" onclick="VerifyId(114)">
+                    <div id="14" class="cards__single" onclick="chooseCard(14)">
                         <div class="cards__front">
-                            <img class="cards__image" id="14" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="14" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back14" alt="Bon Iver album"/>
@@ -207,9 +195,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="115" class="cards__single" onclick="VerifyId(115)">
+                    <div id="15" class="cards__single" onclick="chooseCard(15)">
                         <div class="cards__front">
-                            <img class="cards__image" id="15" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="15" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back15" alt="Bon Iver album"/>
@@ -219,9 +207,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="116" class="cards__single" onclick="VerifyId(116)">
+                    <div id="16" class="cards__single" onclick="chooseCard(16)">
                         <div class="cards__front">
-                            <img class="cards__image" id="16" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="16" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back16" alt="Bon Iver album"/>
@@ -231,9 +219,9 @@
             </td>
             <td>
                 <section class="cards">
-                    <div id="117" class="cards__single" onclick="VerifyId(117)">
+                    <div id="17" class="cards__single" onclick="chooseCard(17)">
                         <div class="cards__front">
-                            <img class="cards__image" id="17" src="card_backside.jpg" alt="Bon Iver album"/>
+                            <img class="cards__image" id="17" src="Images/card_backside.jpg" alt="Bon Iver album"/>
                         </div>
                         <div class="cards__back">
                             <img class="cards__image" id="back17" alt="Bon Iver album"/>
@@ -241,11 +229,8 @@
                     </div>
                 </section>
             </td>
-        </tr> 
-        
-        
+        </tr>   
     </table>
 </body>
 <script src="script.js"></script>
-
 </html>

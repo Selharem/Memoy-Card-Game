@@ -1,54 +1,54 @@
 var Fruits = ['avocado', 'blueberries', 'cabbage', 'spring-onion', 'cherry', 'olives', 'parsley', 'radishes', 'raspberry'];
-var choosenFruits = [];
-var choosenCards = [];
-var id_clicked1 = null;
-var id_clicked2 = null;
-var echec = false;
-var clicked_turn = 0;
-var score = 0;
-var clicked = ['back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back', 'back'];
+var choosenFruits = []; // array of choosen fruits randomly
+var choosenCards = [];  // array of choosen cards randomly
+var id_clicked1 = null; // id of the first clicked card in a pair 
+var id_clicked2 = null; // id of the second clicked card in a pair 
+var clicked_turn = 0; 
+var score = 0; // calculate the total score of the player
 
-var fruitsDuplicated = [];
+var face = []; // state of the card, back or front 
+for (var i = 0; i < 18; i++)
+  face[i] = 'back'; 
+
+var fruitsDuplicated = []; // duplicated fruit array
 for (var i = 0; i < 9; i++)
   fruitsDuplicated.push(Fruits[i], Fruits[i]);
 
-console.log(fruitsDuplicated)
+shuffle(fruitsDuplicated); // Suffle the duplicated array
 
-shuffle(fruitsDuplicated);
-fakeRandom2(fruitsDuplicated);
+distributeRandomly(fruitsDuplicated); // distribute the cards randomly
 
-function verifyId(a) {
-  flippa(a);
+function chooseCard(a) { // organize clicking by pair
+  flipFront(a); 
   if(clicked_turn == 0) {
     id_clicked1 = a;
     clicked_turn = 1;
-  } else if(clicked_turn == 1 && id_clicked1 != null) {
+  } 
+  else if(clicked_turn == 1 && id_clicked1 != null) {
       id_clicked2 = a;
       clicked_turn = 0;
-      console.log(id_clicked1 + ' ' + id_clicked2);
       verifySimilarity();
   }
 }
 
-function flippa(a) {
-  if(clicked[a-100] == 'back' ) {
-    clicked[a-100] = 'front';
-    
+function flipFront(a) {
+  if(face[a] == 'back' ) {
+    face[a] = 'front';
     var card = document.getElementById(a);
     card.classList.toggle('flip');
   }
 }
 
-function flippaBack(a) {
-  setTimeout( function() {
+function flipBack(a) {
+  setTimeout( function() { // to see the missmatched cards before fipped back
     var card = document.getElementById(a);
     card.classList.toggle('flip');
-    clicked[a-100] = 'back';
+    face[a] = 'back';
   }, 500);
 }
 
-function fakeRandom2(array) { 
-  for(var i=0;i<18;i++) {
+function distributeRandomly(array) { //distribute the card initially
+  for(var i=0;i<array.length;i++) {
     choosenFruits[i] = fruitsDuplicated[i];
     document.getElementById('back' + i).src = 'Images/' + fruitsDuplicated[i] + '.svg';
   }
@@ -56,26 +56,26 @@ function fakeRandom2(array) {
 
 function verifySimilarity() {
   if(id_clicked1 != null && id_clicked2 != null) {
-      if(choosenFruits[id_clicked1-100] == choosenFruits[id_clicked2-100] && id_clicked1!=id_clicked2){
-        score ++;
-        if(score == 9) {
-          alert('success');
-        }
-        id_clicked1 = null;
-        id_clicked2 = null;
-        clicked_turn == 0;
-      } else{
-        echec = true;
-        flippaBack(id_clicked1);
-        flippaBack(id_clicked2);
-        id_clicked1 = null;
-        id_clicked2 = null;
-        clicked_turn == 0;
+    if(choosenFruits[id_clicked1] == choosenFruits[id_clicked2] && id_clicked1!=id_clicked2){
+      score ++;
+      if(score == 9) {
+        setTimeout( function() { // to see the last card before reload
+          if(confirm('You win!!!')) { //
+            window.location.reload();  
+          }
+        }, 500);
       }
+    } else {
+      flipBack(id_clicked1);
+      flipBack(id_clicked2);
+      id_clicked1 = null;
+      id_clicked2 = null;
+      clicked_turn == 0;
+    }
   }
 }
 
-function shuffle(array) {
+function shuffle(array) { // shuffle an array
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...

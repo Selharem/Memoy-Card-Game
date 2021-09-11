@@ -1,6 +1,8 @@
 # Memoy-Card-Game
 
-This is a  memory card game built with Vanilla javascript. Feel free to contribute to it if you like!
+This is a  memory card game built with Vanilla javascript. Start the game by flipping a card,Then try to find another card that has the same image as the first. If you can't find a pair, the flipped cards will be flipped back with the face down.
+
+Feel free to contribute to it if you like!
 
 # Getting Started
 
